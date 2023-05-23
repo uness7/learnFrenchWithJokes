@@ -1,41 +1,24 @@
 // import BlaguesAPI from 'blagues-api'
 import { useEffect, useState } from 'react'
+// require('dotenv').config()
 
-const OPTIONS = [
-	'choose one',
-	'global',
-	'dev',
-	'dark',
-	'limit',
-	'beauf',
-	'blondes',
-]
-// const LIMIT = ['choose one', 'Yes', 'No']
+const OPTIONS = ['global', 'dev', 'dark', 'limit', 'beauf', 'blondes']
+const token =
+	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTA5NjIxODM2NjYxMzY1OTcwOSIsImxpbWl0IjoxMDAsImtleSI6Imhyc2drd3g5TFVrd1NrbGg0VlkzZ1BFTTB4SW9NZ3AwN0Zoakg2azNNQ2VSSk5Pc21OIiwiY3JlYXRlZF9hdCI6IjIwMjMtMDUtMjNUMDY6MTY6MjUrMDA6MDAiLCJpYXQiOjE2ODQ4MjI1ODV9._EWe7T8eZBALP-QdyMqEFIl5XJmYNL9okhyhgfmTtpQ'
 
 const Jokes = () => {
 	const [data, setData] = useState('')
-	const [type, setType] = useState('')
-	// const [islimit, setIsLimit] = useState('')
-	// const [limit, setLimit] = useState('')
-
-	const token =
-		'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTA5NjIxODM2NjYxMzY1OTcwOSIsImxpbWl0IjoxMDAsImtleSI6Imhyc2drd3g5TFVrd1NrbGg0VlkzZ1BFTTB4SW9NZ3AwN0Zoakg2azNNQ2VSSk5Pc21OIiwiY3JlYXRlZF9hdCI6IjIwMjMtMDUtMjNUMDY6MTY6MjUrMDA6MDAiLCJpYXQiOjE2ODQ4MjI1ODV9._EWe7T8eZBALP-QdyMqEFIl5XJmYNL9okhyhgfmTtpQ'
+	const [type, setType] = useState(OPTIONS[0])
 
 	useEffect(() => {
 		requestJokes()
 	}, [])
 
-	// useEffect(() => {
-	// 	if (islimit === 'No') {
-	// 		setLimit('?disallow=dark')
-	// 	}
-	// }, [islimit])
-
 	async function requestJokes() {
 		fetch(`https://www.blagues-api.fr/api/type/${type}/random`, {
 			headers: {
 				Authorization: `Bearer ${token}`,
-			},
+			}, // process.env.REACT_APP_API_KEY
 		})
 			.then((res) => res.json())
 			.then((data) => {

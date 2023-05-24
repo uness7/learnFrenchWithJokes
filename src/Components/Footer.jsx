@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { AiFillGithub, AiFillInstagram, AiFillHeart } from 'react-icons/all'
+import { AiFillGithub, AiFillInstagram } from 'react-icons/all'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
 	return (
@@ -34,21 +35,21 @@ const Footer = () => {
 							<span className="cursor-pointer"> @Zuruuh </span>
 						</a>
 						who made this great API free of charge. Check it out at
+						-
 						<a
 							className="cursor-pointer"
 							href="https://www.blagues-api.fr"
 						>
 							<span className="underline text-blue-700">
-								{' '}
 								blagues-francaises.com
 							</span>
 						</a>
 					</p>
 				</div>
 				<div className="flex flex-col underline cursor-pointe text-center">
-					<a>Home</a>
-					<a>Support me</a>
-					<a>About me</a>
+					<Link to="/">Home</Link>
+					<Link to="/support-me">Support me</Link>
+					<Link to="/about-me">About me</Link>
 				</div>
 			</div>
 			<div className="text-lg">

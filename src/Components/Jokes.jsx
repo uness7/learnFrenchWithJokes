@@ -9,7 +9,7 @@ const Jokes = () => {
 
 	useEffect(() => {
 		requestJokes()
-	}, [])
+	}, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 	async function requestJokes() {
 		fetch(`https://www.blagues-api.fr/api/type/${type}/random`, {
@@ -38,7 +38,7 @@ const Jokes = () => {
 			<div className="text-center text-2xl text-white font-bold mt-24">
 				<h1>Pick a theme, and have a laugh</h1>
 			</div>
-			<div className="h-screen w-2/3 m-auto mt-24 bg-primary px-4  py-4 my-12 flex flex-row justify-between gap-x-8 text-xl font-roboto font-normal text-white rounded-2xl">
+			<div className="h-128 w-2/3 m-auto mt-24 bg-primary px-4  py-4 my-12 flex flex-row justify-between gap-x-8 text-xl font-roboto font-normal text-white rounded-2xl">
 				<div className="w-1/2 h-2/3 p-2 border-2 border-white rounded-xl">
 					<form
 						onSubmit={(e) => {
@@ -85,7 +85,7 @@ const Jokes = () => {
 							copy
 						</button>
 					</div>
-					<div className="mt-6">
+					<div className="mt-3">
 						<p>{data.joke}</p>
 						<p>{data.answer}</p>
 					</div>

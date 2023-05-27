@@ -5,11 +5,16 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				roboto: ['Roboto', 'sans-serif'],
-				fredoka: ['Fredoka', 'sans-serif'],
+				pacifico: ['Pacifico', 'sans-serif'],
 			},
 			colors: {
-				primary: '#0E3631',
-				secondary: '#0B6A5E',
+				primary: '#FF6F00',
+				secondary: '#1976D2',
+				accent: '#FDA435',
+			},
+			spacing: {
+				128: '32rem',
+				256: '41rem',
 			},
 		},
 	},

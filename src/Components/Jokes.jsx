@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
 
-const OPTIONS = ['global', 'dev', 'dark', 'limit', 'beauf', 'blondes']
 const apiKey = import.meta.env.VITE_API_KEY
 
 const Jokes = () => {
 	const [data, setData] = useState('')
-	const [type, setType] = useState(OPTIONS[0])
+	const [type, setType] = useState('global')
+	// const [bgColor, setBgColor] = useState(null)
 
 	useEffect(() => {
 		requestJokes()
-	}, []) // eslint-disable-line react-hooks/exhaustive-deps
+	}, [type]) // eslint-disable-line react-hooks/exhaustive-deps
 
 	async function requestJokes() {
 		fetch(`https://www.blagues-api.fr/api/type/${type}/random`, {
@@ -27,67 +27,109 @@ const Jokes = () => {
 		const joke = data.joke + ' ' + data.answer
 		try {
 			await navigator.clipboard.writeText(joke)
-			console.log('Text copied to clipboard')
+			// console.log('Text copied to clipboard')
 		} catch (error) {
 			console.error('Unable to copy text: ', error)
 		}
 	}
 
+	// function handleBgColor() {
+	// 	setBgColor('bg-primary')
+	// }
+
 	return (
 		<div id="jokes">
-			<div className="text-center text-2xl text-white font-bold mt-24">
-				<h1>Pick a theme, and have a laugh</h1>
-			</div>
-			<div className="h-128 w-2/3 m-auto mt-24 bg-primary px-4  py-4 my-12 flex flex-row justify-between gap-x-8 text-xl font-roboto font-normal text-white rounded-2xl">
-				<div className="w-1/2 h-2/3 p-2 border-2 border-white rounded-xl">
-					<form
-						onSubmit={(e) => {
+			<div className="flex justify-evenly text-center text-xl text-black mt-24">
+				<div className="flex gap-x-10 justify-evenly">
+					<button
+						onClick={(e) => {
 							e.preventDefault()
-							requestJokes()
+							setType('dev')
 						}}
-						className="h-full flex flex-col gap-y-16 justify-center items-center"
+						className="px-5 py-2 bg-accent text-white rounded-xl"
 					>
-						<label htmlFor="type" className="text-center">
-							<select
-								className="bg-secondary w-48 block shadow-sm shadow-primary rounded-lg py-2 text-center"
-								id="type"
-								value={type}
-								onChange={(e) => {
-									setType(e.target.value)
-								}}
-							>
-								{OPTIONS.map((item) => {
-									return (
-										<option
-											className="px-20 text-center"
-											key={item}
-										>
-											{item}
-										</option>
-									)
-								})}
-							</select>
-						</label>
-						<button
-							className="bg-secondary w-48 shadow-sm shadow-primary rounded-lg py-2"
-							type="submit"
-						>
-							Another one!
-						</button>
-					</form>
+						Dev
+					</button>
+					<button
+						onClick={(e) => {
+							e.preventDefault()
+							setType('blondes')
+						}}
+						className="px-5 py-2 bg-accent text-white rounded-xl"
+					>
+						Blondes
+					</button>
+					<button
+						onClick={(e) => {
+							e.preventDefault()
+							setType('beauf')
+						}}
+						className="px-5 py-2 bg-accent text-white rounded-xl"
+					>
+						La beauf
+					</button>
+					<button
+						onClick={(e) => {
+							e.preventDefault()
+
+							setType('global')
+						}}
+						className="px-5 py-2 bg-accent text-white rounded-xl"
+					>
+						Global
+					</button>
+					<button
+						onClick={(e) => {
+							e.preventDefault()
+
+							setType('limit')
+						}}
+						className="px-5 py-2 bg-accent text-white rounded-xl"
+					>
+						Adulte
+					</button>
+					<button
+						onClick={(e) => {
+							e.preventDefault()
+
+							setType('dark')
+						}}
+						className="px-5 py-2 bg-accent text-white rounded-xl"
+					>
+						Dark
+					</button>
 				</div>
-				<div className="w-2/3 h-2/3 px-4 text-center flex flex-col gap-y-20 items-center border-2 border-white rounded-xl">
-					<div className="place-self-end">
+			</div>
+
+			<div className="mt-4 w-2/3 h-72 rounded-xl mx-auto bg-primary flex flex-col justify-center items-center">
+				<div className="flex flex-col justify-center items-center">
+					<p className="w-full px-5 text-2xl text-white text-center">
+						{data.joke}
+						{data.answer}
+					</p>
+					<div className="space-x-5 mt-20">
 						<button
-							className="mt-4 mr-4 px-3 py-1 rounded-lg bg-secondary"
-							onClick={copyJoke}
+							onClick={(e) => {
+								e.preventDefault()
+								copyJoke()
+							}}
+							className="px-5 py-1 text-center bg-secondary rounded-xl text-white hover:bg-blue-500"
 						>
 							copy
 						</button>
-					</div>
-					<div className="mt-3">
-						<p>{data.joke}</p>
-						<p>{data.answer}</p>
+						<button className="px-5 py-1  text-center bg-secondary rounded-xl text-white hover:bg-blue-500">
+							share
+						</button>
+						<button
+							onClick={(e) => {
+								e.preventDefault()
+
+								requestJokes()
+							}}
+							className="px-5 py-1 bg-secondary rounded-xl text-white hover:bg-blue-500"
+						>
+							More
+						</button>
 					</div>
 				</div>
 			</div>

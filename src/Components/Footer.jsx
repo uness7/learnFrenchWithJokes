@@ -1,17 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { AiFillGithub, AiFillInstagram } from 'react-icons/all'
+import { AiFillGithub } from 'react-icons/all'
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
 	return (
-		<div className="h-48 px-8 py-4 text-center bg-secondary text-white flex flex-col justify-evenly ">
+		<div className="h-48 px-8 py-4 text-center bg-primary text-white flex flex-col justify-evenly ">
 			<div className="grid grid-cols-3">
 				<div className="text-center flex flex-col justify-center items-center">
 					<h1 className="mb-3 text-3xl font-fredoka cursor-pointer">
 						Youness Zioual
 					</h1>
 					<p className="text-sm">
-						A passionate web developer. Say Hi!
+						A passionate web developer. Say Hi !
 					</p>
 					<div className="flex flex-row space-x-1">
 						<a
@@ -19,12 +19,6 @@ const Footer = () => {
 							className="cursor-pointer mt-4 text-4xl"
 						>
 							<AiFillGithub></AiFillGithub>
-						</a>
-						<a
-							href="https://www.instagram.com/waiziiii"
-							className="cursor-pointer mt-4 text-4xl"
-						>
-							<AiFillInstagram></AiFillInstagram>
 						</a>
 					</div>
 				</div>
@@ -53,7 +47,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<div className="text-lg">
-				<p>Created In Casablanca with Love</p>
+				<p>Created In Casablanca with ❤️</p>
 			</div>
 		</div>
 	)

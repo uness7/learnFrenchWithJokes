@@ -1,7 +1,7 @@
 const HeroSection = () => {
 	return (
 		<div className="bg-primary h-2/3 grid grid-cols-2">
-			<div className="mt-12 ml-10 relative">
+			<div className="mt-16 ml-10 relative">
 				<img src="/images/eiffel-tower.png" alt="" className="h-80" />
 			</div>
 			<div className="absolute top-32 left-60 flex flex-col justify-center items-center">

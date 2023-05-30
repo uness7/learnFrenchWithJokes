@@ -98,9 +98,9 @@ const Jokes = () => {
 						>
 							More
 						</button>
-						<button className="px-5 py-1 bg-secondary rounded-xl text-white hover:bg-blue-500">
+						<span className="px-5 py-1 bg-secondary rounded-xl text-white hover:bg-blue-500">
 							{data.type}
-						</button>
+						</span>
 					</div>
 				</div>
 			</div>

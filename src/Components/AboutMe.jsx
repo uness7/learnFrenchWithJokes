@@ -40,7 +40,7 @@ const AboutMe = () => {
 				<div>
 					<h1 className="font-pacifico  mb-5">Showing My Skills</h1>
 					<p className="text-sm">
-						Through [Your Website Name], I wanted to demonstrate my
+						Through this project, I wanted to demonstrate my
 						proficiency as a full-stack web developer. From crafting
 						the user interface and user experience to developing the
 						underlying functionality and integrating APIs, every
@@ -71,14 +71,18 @@ const AboutMe = () => {
 					further. If you have any inquiries, project opportunities,
 					or just want to say hello, feel free to reach out to me
 					through the contact information provided on the Contact page
-					of this website. Thank you for visiting [Your Website Name].
-					I hope you enjoy exploring the French jokes and witnessing
-					the culmination of my programming skills and passion for web
+					of this website. Thank you for visiting my website. I hope
+					you enjoy exploring the French jokes and witnessing the
+					culmination of my programming skills and passion for web
 					development.
 				</p>
-				<button className="bg-secondary px-20 py-2 rounded-xl my-20 text-white text-xl">
+
+				<a
+					href="mailto:younes.zioual.dev@gmail.com"
+					className="bg-secondary px-20 py-2 rounded-xl my-20 text-white text-xl"
+				>
 					Contatct Me
-				</button>
+				</a>
 			</div>
 		</div>
 	)

@@ -3,7 +3,6 @@ import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home'
 
-const SupportMePage = lazy(() => import('./Pages/SupportMePage'))
 const AboutMe = lazy(() => import('./Pages/AboutMe'))
 
 const App = () => {
@@ -23,7 +22,6 @@ const App = () => {
 						<Route path="/" element={<Home />} />
 
 						<Route path="/about-me" element={<AboutMe />} />
-						<Route path="/support-me" element={<SupportMePage />} />
 					</Routes>
 				</div>
 			</Suspense>

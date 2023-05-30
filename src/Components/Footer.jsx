@@ -42,8 +42,8 @@ const Footer = () => {
 				</div>
 				<div className="flex flex-col underline cursor-pointe text-center">
 					<Link to="/">Home</Link>
-					<Link to="/support-me">Support me</Link>
 					<Link to="/about-me">About me</Link>
+					<a href="https://www.paypal.me/waiziiii">PayPal me</a>
 				</div>
 			</div>
 			<div className="text-lg">

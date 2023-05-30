@@ -37,8 +37,8 @@ const FeedbackForm = () => {
 							<input
 								type="text"
 								name="user_name"
-								placeholder="Full Name"
-								className="py-2 mt-2 w-full rounded-xl px-18"
+								placeholder=" Full Name"
+								className="py-2 mt-2 w-full rounded-lg px-18"
 							/>
 						</label>
 
@@ -46,8 +46,8 @@ const FeedbackForm = () => {
 							<input
 								type="email"
 								name="user_email"
-								placeholder="Email"
-								className="py-2 mt-2 w-full rounded-xl px-18"
+								placeholder=" Email"
+								className="py-2 mt-2 w-full rounded-lg px-18"
 							/>
 						</label>
 
@@ -55,7 +55,7 @@ const FeedbackForm = () => {
 							<input
 								name="message"
 								placeholder=" Message"
-								className="h-20 mt-2 w-full py-2 rounded-xl px-18"
+								className="h-20 mt-2 w-full py-2 rounded-lg px-18"
 							/>
 						</label>
 					</div>

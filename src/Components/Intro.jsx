@@ -1,6 +1,9 @@
 const Intro = () => {
 	return (
-		<div className="grid grid-cols-2 justify-center items-center my-20">
+		<div
+			id="jokes"
+			className="grid grid-cols-2 justify-center items-center my-20"
+		>
 			<div className="text-2xl text-center w-96 m-auto">
 				<p className="font-pacifico">
 					Welcome to Jokey, where laughter meets the charm of French

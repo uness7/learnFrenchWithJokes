@@ -6,7 +6,7 @@ import Footer from '../Components/Footer'
 import Intro from '../Components/Intro'
 import RandomJoke from '../Components/RandomJoke'
 import Speech from '../Components/Speech'
-import Feedback from '../Components/Feedback'
+// import Feedback from '../Components/Feedback'/
 import FeedbackForm from '../Components/FeedbackForm'
 import Thanks from '../Components/Thanks'
 
@@ -19,7 +19,7 @@ const Home = () => {
 			<RandomJoke />
 			<Speech />
 			<Jokes />
-			<Feedback />
+			{/* <Feedback /> */}
 			<FeedbackForm />
 			<Thanks />
 			<Footer />

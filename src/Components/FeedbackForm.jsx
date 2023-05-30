@@ -1,47 +1,79 @@
+import { useRef } from 'react'
+import emailjs from '@emailjs/browser'
+
 const FeedbackForm = () => {
+	const form = useRef()
+
+	const sendEmail = (e) => {
+		e.preventDefault()
+
+		emailjs
+			.sendForm(
+				'service_rstijfs',
+				'template_xz3gfcy',
+				form.current,
+				'9pau7xYq6QNcQn13S'
+			)
+			.then(
+				(result) => {
+					console.log(result.text)
+				},
+				(error) => {
+					console.log(error.text)
+				}
+			)
+	}
+
 	return (
 		<div className="mt-10 px-20 h-80 bg-secondary flex justify-center items-center">
-			<div className="grid grid-cols-2 gap-x-4">
-				<div className="ml-32">
-					<form className="flex flex-col  gap-y-10">
-						<label htmlFor="firstName">
+			<div className="ml-32">
+				<form
+					className="grid grid-cols-2 gap-x-4"
+					ref={form}
+					onSubmit={sendEmail}
+				>
+					<div className="space-y-3">
+						<label>
 							<input
-								type="email"
-								id="email"
-								className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-								placeholder="first name"
+								type="text"
+								name="user_name"
+								placeholder="Full Name"
+								className="py-2 mt-2 w-full rounded-xl px-18"
 							/>
 						</label>
-						<label htmlFor="lastName">
+
+						<label>
 							<input
 								type="email"
-								id="email"
-								className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-								placeholder="last name"
+								name="user_email"
+								placeholder="Email"
+								className="py-2 mt-2 w-full rounded-xl px-18"
 							/>
 						</label>
-						<label htmlFor="email">
+
+						<label>
 							<input
-								type="email"
-								id="email"
-								className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-								placeholder="email"
+								name="message"
+								placeholder=" Message"
+								className="h-20 mt-2 w-full py-2 rounded-xl px-18"
 							/>
 						</label>
-					</form>
-				</div>
-				<div className="flex flex-col justify-end items-center text-white text-2xl">
-					<p className="text-center">
-						We appreciate your opinion, so send us some Feedback, or
-						maybe a joke 🤗
-					</p>
-					<button
-						className="px-10 py-2 mt-10 text-lg rounded-lg bg-primary hover:bg-orange-500"
-						type="submit"
-					>
-						Submit
-					</button>
-				</div>
+					</div>
+
+					<div className="flex flex-col justify-end items-center text-white text-2xl">
+						<p className="text-center">
+							We appreciate your opinion, so send us some
+							Feedback, or maybe a joke 🤗
+						</p>
+						<button
+							className="px-10 py-2 mt-10 text-lg rounded-lg bg-primary hover:bg-orange-500"
+							type="submit"
+							disabled
+						>
+							Submit
+						</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	)

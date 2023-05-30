@@ -1,11 +1,21 @@
 import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 
 const apiKey = import.meta.env.VITE_API_KEY
+
+const OPTIONS = [
+	{ id: 1, type: 'dev', name: 'Dev' },
+	{ id: 2, type: 'limit', name: 'Adults' },
+	{ id: 3, type: 'blondes', name: 'Blondes' },
+	{ id: 4, type: 'global', name: 'General' },
+	{ id: 5, type: 'dark', name: 'Dark ones' },
+	{ id: 6, type: 'beauf', name: 'Food related' },
+]
 
 const Jokes = () => {
 	const [data, setData] = useState('')
 	const [type, setType] = useState('global')
-	// const [bgColor, setBgColor] = useState(null)
+	const [activeTab, setActiveTab] = useState(OPTIONS[0].id)
 
 	useEffect(() => {
 		requestJokes()
@@ -33,71 +43,29 @@ const Jokes = () => {
 		}
 	}
 
-	// function handleBgColor() {
-	// 	setBgColor('bg-primary')
-	// }
-
 	return (
-		<div id="jokes">
+		<div>
 			<div className="flex justify-evenly text-center text-xl text-black mt-24">
 				<div className="flex gap-x-10 justify-evenly">
-					<button
-						onClick={(e) => {
-							e.preventDefault()
-							setType('dev')
-						}}
-						className="px-5 py-2 bg-accent text-white rounded-xl"
-					>
-						Dev
-					</button>
-					<button
-						onClick={(e) => {
-							e.preventDefault()
-							setType('blondes')
-						}}
-						className="px-5 py-2 bg-accent text-white rounded-xl"
-					>
-						Blondes
-					</button>
-					<button
-						onClick={(e) => {
-							e.preventDefault()
-							setType('beauf')
-						}}
-						className="px-5 py-2 bg-accent text-white rounded-xl"
-					>
-						La beauf
-					</button>
-					<button
-						onClick={(e) => {
-							e.preventDefault()
-
-							setType('global')
-						}}
-						className="px-5 py-2 bg-accent text-white rounded-xl"
-					>
-						Global
-					</button>
-					<button
-						onClick={(e) => {
-							e.preventDefault()
-
-							setType('limit')
-						}}
-						className="px-5 py-2 bg-accent text-white rounded-xl"
-					>
-						Adulte
-					</button>
-					<button
-						onClick={(e) => {
-							e.preventDefault()
-
-							setType('dark')
-						}}
-						className="px-5 py-2 bg-accent text-white rounded-xl"
-					>
-						Dark
-					</button>
+					{OPTIONS.map((item) => {
+						return (
+							<motion.button
+								whileHover={{ scale: 1.2 }}
+								key={item.id}
+								className={`${
+									activeTab === item.id
+										? 'bg-primary text-white'
+										: 'bg-white text-black'
+								} rounded-xl px-5 py-2`}
+								onClick={() => {
+									setType(item.type)
+									setActiveTab(item.id)
+								}}
+							>
+								{item.name}
+							</motion.button>
+						)
+					})}
 				</div>
 			</div>
 
@@ -129,6 +97,9 @@ const Jokes = () => {
 							className="px-5 py-1 bg-secondary rounded-xl text-white hover:bg-blue-500"
 						>
 							More
+						</button>
+						<button className="px-5 py-1 bg-secondary rounded-xl text-white hover:bg-blue-500">
+							{data.type}
 						</button>
 					</div>
 				</div>

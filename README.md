@@ -1,2 +1,2 @@
 # learnFrenchWithJokes
-A website that interacts wih an api by @name that sends back jokes. Only for fun.
+A website that interacts wih an api that sends back jokes. Only for fun.
